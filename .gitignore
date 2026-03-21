@@ -1,0 +1,13 @@
+# Terraform state — contains your full infrastructure map
+*.tfstate
+*.tfstate.backup
+
+# Terraform working directory — downloaded provider plugins
+.terraform/
+.terraform.lock.hcl
+
+# Your actual variable values — contains domain name and any secrets
+terraform.tfvars
+
+# OS clutter
+.DS_Store
