@@ -78,6 +78,35 @@ AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
 S3_BUCKET_NAME
 CLOUDFRONT_DISTRIBUTION_ID
+
+## Security Note
+Current deployment uses IAM credentials via GitHub Actions secrets.
+Planned improvement: migrate to OIDC federation — GitHub Actions 
+assumes IAM role directly, eliminating long-lived static credentials.
+
+## If I Were Building This for Production
+
+- OIDC instead of static IAM credentials for GitHub Actions
+- WAF in front of CloudFront for request filtering
+- S3 access logging enabled for audit trail
+- CloudFront logging to S3 for traffic analysis
+- Separate Terraform state per environment
+```
+
+This section tells an interviewer you think beyond "does it work" to "is it secure and scalable." Most junior candidates can't articulate this.
+
+---
+
+## Final GitHub Pin Priority
+
+Reorder your 6 pins to this:
+```
+1. aws-cloud-platform              ← most mature IaC project
+2. Automated-Vulnerability-Mgmt    ← best security project  
+3. portfolio-infrastructure        ← live CI/CD, real domain
+4. macos-splunk-monitoring         ← SOC resume validation
+5. [Dispatch Platform]             ← if pushed
+6. [Kali Linux Lab]                ← if pushed
 ```
 
 ---
