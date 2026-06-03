@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornelius Rhone — Systems & Infrastructure Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Bricolage+Grotesque:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #fafaf8;
+  --cream: #f4f1ea;
+  --cream2: #ece8de;
+  --ink: #1a1916;
+  --ink2: #3a3832;
+  --mid: #7a7770;
+  --light: #b0ada6;
+  --gold: #c8960a;
+  --gold-bg: #fdf6e3;
+  --blue: #1a5fa8;
+  --blue-bg: #e8f0fb;
+  --green: #1a7a4a;
+  --green-bg: #e5f4ec;
+  --border: #e0dbd1;
+  --border2: #ccc8be;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  color: var(--mid);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  border-radius: 999px;
+  transition: all 0.15s;
+}
+.nav-links a:hover { color: var(--ink); background: var(--cream); }
+.nav-cta {
+  background: var(--ink);
+  color: var(--white) !important;
+  padding: 0.4rem 1.1rem !important;
+}
+.nav-cta:hover { background: var(--ink2) !important; }
+
+/* ── HERO ── */
+.hero {
+  padding: 130px 2rem 90px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--gold-bg);
+  border: 1px solid #e8d080;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+.hero-badge::before { content: '●'; font-size: 0.5rem; }
+h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: clamp(3.2rem, 7vw, 5.8rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+}
+h1 em {
+  font-style: normal;
+  color: var(--mid);
+}
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--mid);
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-desc strong { color: var(--ink2); font-weight: 500; }
+.hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: var(--ink2); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border2); }
+.btn-outline:hover { border-color: var(--ink); background: var(--cream); }
+.hero-stats {
+  display: flex; gap: 0; margin-top: 4rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--cream);
+  max-width: 640px;
+}
+.hero-stat {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.hero-stat:last-child { border-right: none; }
+.hs-num {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.hs-label { font-size: 0.75rem; color: var(--mid); line-height: 1.35; }
+
+/* ── SECTION SHARED ── */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+.section { padding: 80px 0; }
+.section-divider { border: none; border-top: 1px solid var(--border); }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+}
+h2 span { color: var(--mid); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-body {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.85;
+}
+.about-body p { margin-bottom: 1.25rem; }
+.about-body strong { color: var(--ink2); font-weight: 500; }
+.about-callout {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+.cert-stack { display: flex; flex-direction: column; gap: 0.75rem; }
+.cert-chip {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.cert-chip:hover { border-color: var(--border2); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.cert-info {}
+.cert-issuer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+}
+.cert-title { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+.cert-badge {
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.badge-earned { background: var(--green-bg); color: var(--green); }
+.badge-soon { background: var(--gold-bg); color: var(--gold); }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.project-card {
+  background: var(--white);
+  padding: 2rem;
+  display: flex; flex-direction: column;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+.project-card:hover { background: var(--cream); }
+.project-card.featured {
+  grid-column: span 2;
+  background: var(--ink);
+  color: var(--white);
+}
+.project-card.featured:hover { background: var(--ink2); }
+.project-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+.project-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--light);
+  letter-spacing: 0.08em;
+}
+.project-card.featured .project-num { color: rgba(255,255,255,0.4); }
+.project-status {
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+.status-active { background: var(--green-bg); color: var(--green); }
+.status-done { background: var(--blue-bg); color: var(--blue); }
+.project-card.featured .status-active { background: rgba(111,232,168,0.15); color: #6fe8a8; }
+.project-title {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.project-card.featured .project-title { color: var(--white); font-size: 1.5rem; }
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+.project-card.featured .project-desc { color: rgba(255,255,255,0.55); font-size: 0.95rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--mid);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+.project-card.featured .tag {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
+}
+.project-arrow {
+  position: absolute; top: 1.75rem; right: 1.75rem;
+  font-size: 1rem;
+  color: var(--border2);
+  transition: color 0.15s, transform 0.15s;
+}
+.project-card:hover .project-arrow { color: var(--ink); transform: translate(2px,-2px); }
+.project-card.featured .project-arrow { color: rgba(255,255,255,0.25); }
+.project-card.featured:hover .project-arrow { color: rgba(255,255,255,0.7); }
+
+/* ── SKILLS ── */
+.skills-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.skill-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.skill-card:hover { border-color: var(--border2); box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+.skill-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.si-cloud { background: var(--blue-bg); }
+.si-linux { background: var(--gold-bg); }
+.si-sec { background: #fde8e8; }
+.si-net { background: #e8f4fd; }
+.si-dev { background: var(--green-bg); }
+.si-study { background: var(--cream2); }
+.skill-card-title {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-pill {
+  font-size: 0.78rem;
+  color: var(--ink2);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 400;
+}
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--light);
+  padding-top: 0.2rem;
+  line-height: 1.5;
+}
+.exp-role {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.exp-company {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 0.9rem;
+  color: var(--mid);
+  padding: 0.28rem 0 0.28rem 1.1rem;
+  position: relative;
+  line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--border2);
+  font-size: 0.8rem;
+}
+
+/* ── CONTACT ── */
+.contact-inner {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.contact-inner h2 { color: var(--white); margin-bottom: 1rem; }
+.contact-sub { color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
+.btn-light { background: var(--white); color: var(--ink); }
+.btn-light:hover { background: var(--cream); }
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.15s, border-color 0.15s;
+}
+.contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.cl-icon {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.7);
+}
+.cl-info {}
+.cl-type { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.1rem; }
+.cl-val { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.78rem;
+  color: var(--light);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 1.25rem 60px; }
+  .wrap { padding: 0 1.25rem; }
+  .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; }
+  .skills-layout { grid-template-columns: 1fr 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .contact-inner { padding: 2.5rem 1.5rem; }
+  h1 { font-size: 2.8rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero > * { animation: fadeUp 0.55s ease both; }
+.hero > *:nth-child(1) { animation-delay: 0.05s; }
+.hero > *:nth-child(2) { animation-delay: 0.15s; }
+.hero > *:nth-child(3) { animation-delay: 0.25s; }
+.hero > *:nth-child(4) { animation-delay: 0.35s; }
+.hero > *:nth-child(5) { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Cornelius Rhone</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Available for hire — Fort Lauderdale / Remote</div>
+  <h1>Systems &amp;<br><em>Infrastructure</em><br>Engineer</h1>
+  <p class="hero-desc">
+    <strong>Operator turned engineer.</strong> I scaled a field service company 375% through automation, then decided I wanted to build the infrastructure others depend on. AWS, Linux, Terraform — production grade.
+  </p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-dark">View Projects →</a>
+    <a href="https://github.com/DiehardArchitect" target="_blank" class="btn btn-outline">GitHub ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hs-num">375%</div>
+      <div class="hs-label">Growth via<br>automation</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-num">4</div>
+      <div class="hs-label">Industry<br>certifications</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-num">Jul '25</div>
+      <div class="hs-label">RHCSA<br>target</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hs-num">SAA</div>
+      <div class="hs-label">AWS Architect<br>Associate</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">// about</div>
+        <h2>Built<br><span>different.</span></h2>
+        <div class="about-body">
+          <p>Most engineers come up through CS programs. I came up through operations — running 35+ technicians and 25 dispatchers across multiple markets, wiring together automation tools to build something that actually worked at scale.</p>
+          <p>That experience gave me something textbooks don't: I know what happens when systems fail at 2am, and I know how to build so they don't. Now I'm pursuing my B.A.S. in Information Technology at Broward College, with <strong>Cloud Security Architect</strong> as the long-term target.</p>
+          <p>Currently sitting for <strong>RHCSA EX200 on RHEL 10</strong> in July 2025, studying for <strong>AWS CloudOps SOA-C03</strong>, and building DispatchIQ — a multitenant SaaS cancel recovery platform on AWS.</p>
+        </div>
+        <div class="about-callout">
+          Open to <strong>Systems Engineer, Infrastructure Engineer, Linux Admin,</strong> and <strong>Cloud Support</strong> roles — remote or Fort Lauderdale based.
+        </div>
+      </div>
+      <div>
+        <div class="section-tag" style="margin-bottom:1.25rem;">// certifications</div>
+        <div class="cert-stack">
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">AWS</div>
+              <div class="cert-title">Solutions Architect Associate</div>
+            </div>
+            <span class="cert-badge badge-earned">Earned</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">AWS</div>
+              <div class="cert-title">Cloud Practitioner</div>
+            </div>
+            <span class="cert-badge badge-earned">Earned</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">CompTIA</div>
+              <div class="cert-title">Security+</div>
+            </div>
+            <span class="cert-badge badge-earned">Earned</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">Red Hat</div>
+              <div class="cert-title">RHCSA EX200 — RHEL 10</div>
+            </div>
+            <span class="cert-badge badge-soon">Jul 2025</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">AWS</div>
+              <div class="cert-title">SysOps Admin Associate</div>
+            </div>
+            <span class="cert-badge badge-soon">In Progress</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">Broward College</div>
+              <div class="cert-title">Cloud Engineering · IT Analyst · Network Admin · IT Support</div>
+            </div>
+            <span class="cert-badge badge-earned">×4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="wrap">
+    <div class="section-tag">// projects</div>
+    <h2>Things I've <span>built.</span></h2>
+    <div class="projects-grid">
+
+      <!-- FEATURED -->
+      <a href="#" class="project-card featured">
+        <div class="project-header">
+          <span class="project-num">01 / Featured</span>
+          <span class="project-status status-active">In Progress</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">DispatchIQ — Multitenant Cancel Recovery Platform</div>
+        <div class="project-desc">AI-driven cancel recovery SaaS for field service businesses. Built on AWS Bedrock AgentCore and LangGraph with MCP tool integration. Production VPC across multiple AZs, tenant-scoped IAM enforced at the data layer as a non-negotiable constraint. Phase 4 of 7 complete.</div>
+        <div class="project-tags">
+          <span class="tag">AWS Bedrock</span>
+          <span class="tag">LangGraph</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">MCP</span>
+          <span class="tag">DynamoDB</span>
+          <span class="tag">Multitenant IAM</span>
+          <span class="tag">ECS Fargate</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-header">
+          <span class="project-num">02</span>
+          <span class="project-status status-done">Complete</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">AWS Vulnerability Management Pipeline</div>
+        <div class="project-desc">Serverless detection-to-notification pipeline. Inspector feeds EventBridge rules that trigger Lambda for triage and SNS for alerting. SSH exposure eliminated via SSM Session Manager. 100% critical finding remediation at zero monthly cost.</div>
+        <div class="project-tags">
+          <span class="tag">Inspector</span><span class="tag">EventBridge</span><span class="tag">Lambda</span><span class="tag">SNS</span><span class="tag">SSM</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <span class="project-status status-done">Complete</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">Splunk Cloud SIEM — macOS Security Monitoring</div>
+        <div class="project-desc">Full detection pipeline ingesting macOS security events via HEC. Dashboards covering event volume, top processes, and recent security events with threshold alerting. End-to-end from data source to alert.</div>
+        <div class="project-tags">
+          <span class="tag">Splunk Cloud</span><span class="tag">HEC</span><span class="tag">macOS</span><span class="tag">Detection Engineering</span>
+        </div>
+      </a>
+
+      <a href="https://crhone.com" target="_blank" class="project-card">
+        <div class="project-header">
+          <span class="project-num">04</span>
+          <span class="project-status status-done">Complete</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">Portfolio Infrastructure — S3 + CloudFront + CI/CD</div>
+        <div class="project-desc">This site. S3 + CloudFront + Route 53 provisioned entirely with Terraform. GitHub Actions pipeline syncs to S3 and invalidates CloudFront cache on every push to main. ~$2/month running cost.</div>
+        <div class="project-tags">
+          <span class="tag">Terraform</span><span class="tag">S3</span><span class="tag">CloudFront</span><span class="tag">Route 53</span><span class="tag">GitHub Actions</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-header">
+          <span class="project-num">05</span>
+          <span class="project-status status-active">In Progress</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">EC2 + NGINX Reverse Proxy</div>
+        <div class="project-desc">Production-style web server provisioned with Terraform. NGINX reverse proxy in front of a Node.js app — app bound to localhost only, never directly internet-accessible. SSH locked to single IP. systemd auto-restart.</div>
+        <div class="project-tags">
+          <span class="tag">EC2</span><span class="tag">NGINX</span><span class="tag">Terraform</span><span class="tag">Linux</span><span class="tag">systemd</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="wrap">
+    <div class="section-tag">// skills & stack</div>
+    <h2>What I <span>work with.</span></h2>
+    <div class="skills-layout">
+      <div class="skill-card">
+        <div class="skill-icon si-cloud">☁</div>
+        <div class="skill-card-title">Cloud & IaC</div>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS EC2</span>
+          <span class="skill-pill">VPC</span>
+          <span class="skill-pill">IAM</span>
+          <span class="skill-pill">S3</span>
+          <span class="skill-pill">CloudFront</span>
+          <span class="skill-pill">Route 53</span>
+          <span class="skill-pill">Lambda</span>
+          <span class="skill-pill">EventBridge</span>
+          <span class="skill-pill">Terraform</span>
+          <span class="skill-pill">AWS CLI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon si-linux">🐧</div>
+        <div class="skill-card-title">Linux & Systems</div>
+        <div class="skill-pills">
+          <span class="skill-pill">RHEL 9/10</span>
+          <span class="skill-pill">systemd</span>
+          <span class="skill-pill">SELinux</span>
+          <span class="skill-pill">LVM</span>
+          <span class="skill-pill">firewalld</span>
+          <span class="skill-pill">Bash</span>
+          <span class="skill-pill">UTM / VMs</span>
+          <span class="skill-pill">aarch64</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon si-sec">🔐</div>
+        <div class="skill-card-title">Security</div>
+        <div class="skill-pills">
+          <span class="skill-pill">IAM Policy Design</span>
+          <span class="skill-pill">AWS Inspector</span>
+          <span class="skill-pill">Splunk SIEM</span>
+          <span class="skill-pill">SSM Session Manager</span>
+          <span class="skill-pill">Security Groups</span>
+          <span class="skill-pill">NACLs</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon si-net">🌐</div>
+        <div class="skill-card-title">Networking</div>
+        <div class="skill-pills">
+          <span class="skill-pill">VLANs</span>
+          <span class="skill-pill">Subnetting</span>
+          <span class="skill-pill">Inter-VLAN Routing</span>
+          <span class="skill-pill">DNS</span>
+          <span class="skill-pill">DHCP</span>
+          <span class="skill-pill">NAT</span>
+          <span class="skill-pill">Packet Tracer</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon si-dev">⚙</div>
+        <div class="skill-card-title">Dev & Tooling</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">GitHub Actions</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">NGINX</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Zapier</span>
+          <span class="skill-pill">VS Code</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon si-study">📖</div>
+        <div class="skill-card-title">Currently Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill">RHCSA EX200</span>
+          <span class="skill-pill">AWS CloudOps</span>
+          <span class="skill-pill">Ansible RH294</span>
+          <span class="skill-pill">EKS</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Windows Server Hybrid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="wrap">
+    <div class="section-tag">// experience</div>
+    <h2>Where I've <span>worked.</span></h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-date">Sept – Dec 2025<br>Internship</div>
+        <div>
+          <div class="exp-role">Solutions Consultant Intern</div>
+          <div class="exp-company">UKG</div>
+          <ul class="exp-bullets">
+            <li>Conducted requirements-gathering calls for UKG Ready workforce management implementations</li>
+            <li>Earned UKG Ready TLM certification through hands-on platform configuration work</li>
+            <li>Bridged technical and business stakeholders to translate client needs into system config</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2024 – Present<br>Instruction</div>
+        <div>
+          <div class="exp-role">Technical Instructor</div>
+          <div class="exp-company">Cre8tive Devs</div>
+          <ul class="exp-bullets">
+            <li>Teach CompTIA A+ and AWS Cloud Practitioner content to aspiring IT professionals</li>
+            <li>Translate complex infrastructure and cloud concepts into accessible, practical instruction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2018 – Present<br>Operations</div>
+        <div>
+          <div class="exp-role">Founder & Operator</div>
+          <div class="exp-company">Lucky Locksmith LLC / Diehard Business LLC</div>
+          <ul class="exp-bullets">
+            <li>Scaled from solo operation to 35+ technicians and 25 dispatchers across multiple markets</li>
+            <li>Built full dispatch automation pipeline — Zapier, AgentHost.ai, OpenPhone, ServiceBridge</li>
+            <li>Designed insider threat detection framework after dispatcher leak; eliminated the attack surface</li>
+            <li>375% revenue growth driven by systems, not headcount</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <div class="section-tag" style="color:rgba(255,255,255,0.35);">// contact</div>
+        <h2>Let's build<br>something.</h2>
+        <p class="contact-sub">
+          Open to Systems Engineer, Infrastructure Engineer, Linux Admin, and Cloud Support roles — remote or Fort Lauderdale. Also available for cleared independent consulting.
+        </p>
+        <a href="mailto:c.rhone@icloud.com" class="btn btn-light">Send an Email →</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/corneliusrhone" target="_blank" class="contact-link">
+          <div class="cl-icon">in</div>
+          <div class="cl-info">
+            <div class="cl-type">LinkedIn</div>
+            <div class="cl-val">linkedin.com/in/corneliusrhone</div>
+          </div>
+        </a>
+        <a href="https://github.com/DiehardArchitect" target="_blank" class="contact-link">
+          <div class="cl-icon">GH</div>
+          <div class="cl-info">
+            <div class="cl-type">GitHub</div>
+            <div class="cl-val">github.com/DiehardArchitect</div>
+          </div>
+        </a>
+        <a href="mailto:c.rhone@icloud.com" class="contact-link">
+          <div class="cl-icon">@</div>
+          <div class="cl-info">
+            <div class="cl-type">Email</div>
+            <div class="cl-val">c.rhone@icloud.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Cornelius Rhone</span>
+  <span>built with terraform + github actions</span>
+</footer>
+
+</body>
+</html>
