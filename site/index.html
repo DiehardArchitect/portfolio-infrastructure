@@ -236,6 +236,7 @@ h2 span { color: var(--mid); }
 }
 .badge-earned { background: var(--green-bg); color: var(--green); }
 .badge-soon { background: var(--gold-bg); color: var(--gold); }
+.badge-progress { background: var(--blue-bg); color: var(--blue); }
 
 /* ── PROJECTS ── */
 .projects-grid {
@@ -353,6 +354,8 @@ h2 span { color: var(--mid); }
 .si-net { background: #e8f4fd; }
 .si-dev { background: var(--green-bg); }
 .si-study { background: var(--cream2); }
+.si-ms { background: var(--blue-bg); }
+.skill-card-wide { grid-column: 1 / -1; }
 .skill-card-title {
   font-family: 'Clash Display', sans-serif;
   font-weight: 600;
@@ -515,9 +518,9 @@ footer {
 <div class="hero">
   <div class="hero-badge">Available for hire — Fort Lauderdale / Remote</div>
   <h1>Cloud<br><em>Infrastructure</em><br>&amp; Systems Specialist</h1>
-  <div class="section-tag" style="margin-bottom:1.5rem;">AWS · Red Hat Linux · Enterprise Networking · Cloud Security Architect track</div>
+  <div class="section-tag" style="margin-bottom:1.5rem;">AWS · Cloud Security · Terraform · Linux · Cloud Security Architect track</div>
   <p class="hero-desc">
-    <strong>Operator turned engineer.</strong> I scaled a field service company 375% through automation, then decided I wanted to build the infrastructure others depend on. AWS, Red Hat Enterprise Linux, enterprise networking — production grade.
+    <strong>Operator turned engineer.</strong> I scaled a field service company 375% through automation, then decided I wanted to build the infrastructure others depend on. AWS, cloud security, infrastructure as code — production grade.
   </p>
   <div class="hero-actions">
     <a href="#projects" class="btn btn-dark">View Projects →</a>
@@ -529,12 +532,12 @@ footer {
       <div class="hs-label">Growth via<br>automation</div>
     </div>
     <div class="hero-stat">
-      <div class="hs-num">4</div>
+      <div class="hs-num">5</div>
       <div class="hs-label">Industry<br>certifications</div>
     </div>
     <div class="hero-stat">
-      <div class="hs-num">Summer '26</div>
-      <div class="hs-label">CySA+<br>target</div>
+      <div class="hs-num">M.S.</div>
+      <div class="hs-label">Cyber Defense<br>NSU · 2027</div>
     </div>
     <div class="hero-stat">
       <div class="hs-num">SAA</div>
@@ -546,22 +549,46 @@ footer {
 <hr class="section-divider">
 
 <!-- ABOUT -->
-<div class="section">
+<div class="section" id="about">
   <div class="wrap">
     <div class="about-grid">
       <div>
         <div class="section-tag">// about</div>
         <h2>Built<br><span>different.</span></h2>
         <div class="about-body">
-          <p>Most engineers come up through CS programs. I came up through operations — running 35+ technicians and 25 dispatchers across multiple markets, wiring together automation tools to build something that actually worked at scale.</p>
-          <p>That experience gave me something textbooks don't: I know what happens when systems fail at 2am, and I know how to build so they don't. Now I'm pursuing my B.A.S. in Information Technology at Broward College, with <strong>Cloud Security Architect</strong> as the long-term target.</p>
-          <p>Currently sitting for <strong>CompTIA CySA+</strong> this summer, studying RHCSA (EX200) on RHEL 10 at my own pace, and building DispatchIQ — a multitenant SaaS cancel recovery platform on AWS.</p>
+          <p>Most engineers come up through CS programs. I came up through operations — running IT for a field service business with 35+ technicians and 25 dispatchers across multiple markets, and wiring together the automation that let it scale 375% without scaling headcount.</p>
+          <p>That taught me something textbooks don't: I know what happens when systems fail at 2am, and I know how to build so they don't. Today I'm a <strong>Cybersecurity Intern</strong> at Broward College's Technology Services, working alert triage, log review, and security hardening in a live enterprise environment.</p>
+          <p>I'm finishing my B.A.S. in Information Technology (Spring 2027), then starting an <strong>M.S. in Cyber Defense at Nova Southeastern University</strong> in Summer 2027. Current focus: Terraform, AWS security, and Python — on the way to <strong>Cloud Security Architect</strong>.</p>
         </div>
         <div class="about-callout">
           Open to <strong>Cloud Infrastructure &amp; Cloud Security</strong> roles — Remote | Fort Lauderdale, FL | Relocation Friendly
         </div>
       </div>
       <div>
+        <div class="section-tag" style="margin-bottom:1.25rem;">// education</div>
+        <div class="cert-stack" style="margin-bottom:2rem;">
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">Nova Southeastern University</div>
+              <div class="cert-title">M.S. Cyber Defense</div>
+            </div>
+            <span class="cert-badge badge-soon">Summer 2027</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">Broward College</div>
+              <div class="cert-title">B.A.S. Information Technology — Network Systems Analyst</div>
+            </div>
+            <span class="cert-badge badge-soon">Spring 2027</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">Broward College</div>
+              <div class="cert-title">A.S. Network Systems Technology — Cloud Architecture</div>
+            </div>
+            <span class="cert-badge badge-earned">2025</span>
+          </div>
+        </div>
         <div class="section-tag" style="margin-bottom:1.25rem;">// certifications</div>
         <div class="cert-stack">
           <div class="cert-chip">
@@ -581,6 +608,13 @@ footer {
           <div class="cert-chip">
             <div class="cert-info">
               <div class="cert-issuer">CompTIA</div>
+              <div class="cert-title">CySA+</div>
+            </div>
+            <span class="cert-badge badge-earned">Earned</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">CompTIA</div>
               <div class="cert-title">Security+</div>
             </div>
             <span class="cert-badge badge-earned">Earned</span>
@@ -588,14 +622,28 @@ footer {
           <div class="cert-chip">
             <div class="cert-info">
               <div class="cert-issuer">CompTIA</div>
-              <div class="cert-title">CySA+</div>
+              <div class="cert-title">Security Analytics Professional (CSAP)</div>
             </div>
-            <span class="cert-badge badge-soon">Summer 2026</span>
+            <span class="cert-badge badge-earned">Earned</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">HashiCorp</div>
+              <div class="cert-title">Terraform Associate</div>
+            </div>
+            <span class="cert-badge badge-progress">In Progress</span>
+          </div>
+          <div class="cert-chip">
+            <div class="cert-info">
+              <div class="cert-issuer">AWS</div>
+              <div class="cert-title">Security – Specialty</div>
+            </div>
+            <span class="cert-badge badge-soon">Up Next</span>
           </div>
           <div class="cert-chip">
             <div class="cert-info">
               <div class="cert-issuer">Broward College</div>
-              <div class="cert-title">Cloud Engineering · IT Analyst · Network Admin · IT Support</div>
+              <div class="cert-title">Cloud Engineering · IT Analyst · Network Server Admin · IT Support</div>
             </div>
             <span class="cert-badge badge-earned">×4</span>
           </div>
@@ -736,6 +784,12 @@ footer {
           <span class="skill-pill">AWS Inspector</span>
           <span class="skill-pill">Splunk SIEM</span>
           <span class="skill-pill">SSM Session Manager</span>
+          <span class="skill-pill">SIEM / EDR Triage</span>
+          <span class="skill-pill">GuardDuty</span>
+          <span class="skill-pill">CloudTrail</span>
+          <span class="skill-pill">Wazuh</span>
+          <span class="skill-pill">Vulnerability Mgmt</span>
+          <span class="skill-pill">NIST Frameworks</span>
           <span class="skill-pill">Security Groups</span>
           <span class="skill-pill">NACLs</span>
         </div>
@@ -767,15 +821,24 @@ footer {
         </div>
       </div>
       <div class="skill-card">
+        <div class="skill-icon si-ms">⊞</div>
+        <div class="skill-card-title">Microsoft &amp; Identity</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Windows Server 2022</span>
+          <span class="skill-pill">Active Directory DS</span>
+          <span class="skill-pill">Group Policy (GPO)</span>
+          <span class="skill-pill">Microsoft Entra ID</span>
+          <span class="skill-pill">Microsoft Azure</span>
+        </div>
+      </div>
+      <div class="skill-card skill-card-wide">
         <div class="skill-icon si-study">📖</div>
         <div class="skill-card-title">Currently Learning</div>
         <div class="skill-pills">
-          <span class="skill-pill">RHCSA EX200</span>
-          <span class="skill-pill">AWS CloudOps</span>
-          <span class="skill-pill">Ansible RH294</span>
-          <span class="skill-pill">EKS</span>
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">Windows Server Hybrid</span>
+          <span class="skill-pill">Terraform Associate</span>
+          <span class="skill-pill">AWS Security – Specialty</span>
+          <span class="skill-pill">Python (100 Days of Code)</span>
+          <span class="skill-pill">Azure Administration (AZ-104)</span>
         </div>
       </div>
     </div>
@@ -792,40 +855,67 @@ footer {
     <div class="exp-list">
 
       <div class="exp-item">
-        <div class="exp-date">Sept – Dec 2025<br>Internship</div>
+        <div class="exp-date">Aug 2026 – Present<br>Internship</div>
+        <div>
+          <div class="exp-role">Cybersecurity Intern</div>
+          <div class="exp-company">Broward College — North Broward Technology Services</div>
+          <ul class="exp-bullets">
+            <li>Monitor security alerts across SIEM and EDR platforms to identify, triage, and escalate potential threats</li>
+            <li>Perform log reviews and event correlation to support incident response workflows</li>
+            <li>Audit system configurations with cross-functional teams to strengthen baseline security hardening</li>
+            <li>Contribute to updating departmental security policies and procedures to align with NIST frameworks</li>
+            <li>Help plan and run cybersecurity awareness events for students and staff</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Aug – Dec 2025<br>Internship</div>
         <div>
           <div class="exp-role">Solutions Consultant Intern</div>
           <div class="exp-company">UKG</div>
           <ul class="exp-bullets">
-            <li>Conducted requirements-gathering calls for UKG Ready workforce management implementations</li>
-            <li>Earned UKG Ready TLM certification through hands-on platform configuration work</li>
-            <li>Bridged technical and business stakeholders to translate client needs into system config</li>
+            <li>Earned the UKG Ready Time &amp; Labor Management (TLM) certification through hands-on configuration and implementation work</li>
+            <li>Ran requirements-gathering and discovery sessions, translating business challenges into tailored UKG Ready solutions</li>
+            <li>Partnered with engineering, implementation, and business teams to support application rollouts</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2024 – Present<br>Instruction</div>
+        <div class="exp-date">Mar 2020 – Present<br>Operations</div>
+        <div>
+          <div class="exp-role">IT Operations Manager</div>
+          <div class="exp-company">Diehard Business LLC</div>
+          <ul class="exp-bullets">
+            <li>Sole IT resource for a multi-market field service business (35 technicians, 25 dispatchers) — systems, tooling, and infrastructure decisions end to end</li>
+            <li>Designed automation pipelines that scaled operations 375%, including AI-agent-assisted dispatch and a nightly cancellation-recovery pipeline</li>
+            <li>Troubleshoot API failures, webhook retry storms, and telephony routing across Zapier, AgentHost.ai, and OpenPhone/Quo</li>
+            <li>Manage user access, onboarding, and provisioning for a distributed team, including an offshore dispatch team</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Apr 2025 – Feb 2026<br>Contract</div>
         <div>
           <div class="exp-role">Technical Instructor</div>
-          <div class="exp-company">Cre8tive Devs</div>
+          <div class="exp-company">Cre8tive Devs Software</div>
           <ul class="exp-bullets">
-            <li>Teach CompTIA A+ and AWS Cloud Practitioner content to aspiring IT professionals</li>
-            <li>Translate complex infrastructure and cloud concepts into accessible, practical instruction</li>
+            <li>Taught CompTIA A+ and AWS Cloud Practitioner curriculum to adult learners transitioning into IT</li>
+            <li>Built and maintained hands-on lab environments — hardware builds, virtualized OS installs, and AWS sandbox accounts</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-date">2018 – Present<br>Operations</div>
+        <div class="exp-date">Nov 2017 – Mar 2020<br>Operations</div>
         <div>
-          <div class="exp-role">Founder & Operator</div>
-          <div class="exp-company">Lucky Locksmith LLC / Diehard Business LLC</div>
+          <div class="exp-role">Operations Manager</div>
+          <div class="exp-company">LHS IP Network</div>
           <ul class="exp-bullets">
-            <li>Scaled from solo operation to 35+ technicians and 25 dispatchers across multiple markets</li>
-            <li>Built full dispatch automation pipeline — Zapier, AgentHost.ai, OpenPhone, ServiceBridge</li>
-            <li>Designed insider threat detection framework after dispatcher leak; eliminated the attack surface</li>
-            <li>375% revenue growth driven by systems, not headcount</li>
+            <li>Managed network operations staff at a VoIP/SIP networking company, owning shift coverage and 24/7 escalation procedures</li>
+            <li>Led operational response and post-incident reviews during revenue-impacting outages</li>
           </ul>
         </div>
       </div>
@@ -844,7 +934,7 @@ footer {
         <div class="section-tag" style="color:rgba(255,255,255,0.35);">// contact</div>
         <h2>Let's build<br>something.</h2>
         <p class="contact-sub">
-          Open to Cloud Infrastructure &amp; Cloud Security roles — Remote | Fort Lauderdale, FL | Relocation Friendly. Also available for cleared independent consulting.
+          Open to Cloud Infrastructure &amp; Cloud Security roles — Remote | Fort Lauderdale, FL | Relocation Friendly. Also available for independent security consulting.
         </p>
         <a href="mailto:c.rhone@icloud.com" class="btn btn-light">Send an Email →</a>
       </div>
@@ -876,7 +966,7 @@ footer {
 </div>
 
 <footer>
-  <span>© 2025 Cornelius Rhone</span>
+  <span>© 2026 Cornelius Rhone</span>
   <span>built with terraform + github actions</span>
 </footer>
 
