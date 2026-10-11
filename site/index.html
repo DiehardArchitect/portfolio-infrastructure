@@ -267,6 +267,7 @@ h2 span { color: var(--mid); }
 .project-header {
   display: flex; justify-content: space-between; align-items: flex-start;
   margin-bottom: 0.75rem;
+  padding-right: 1.75rem;
 }
 .project-num {
   font-family: 'JetBrains Mono', monospace;
@@ -557,7 +558,7 @@ footer {
         <h2>Built<br><span>different.</span></h2>
         <div class="about-body">
           <p>Most engineers come up through CS programs. I came up through operations — running IT for a field service business with 35+ technicians and 25 dispatchers across multiple markets, and wiring together the automation that let it scale 375% without scaling headcount.</p>
-          <p>That taught me something textbooks don't: I know what happens when systems fail at 2am, and I know how to build so they don't. Today I'm a <strong>Cybersecurity Intern</strong> at Broward College's Technology Services, working alert triage, log review, and security hardening in a live enterprise environment.</p>
+          <p>That taught me something textbooks don't: I know what happens when systems fail at 2am, and I know how to build so they don't. Today I'm a <strong>Cybersecurity Analyst</strong> (internship) at Broward College's Technology Services, triaging security events, analyzing logs, and documenting incidents in a live enterprise environment.</p>
           <p>I'm finishing my B.A.S. in Information Technology (Spring 2027), then starting an <strong>M.S. in Cyber Defense at Nova Southeastern University</strong> in Summer 2027. Current focus: Terraform, AWS security, and Python — on the way to <strong>Cloud Security Architect</strong>.</p>
         </div>
         <div class="about-callout">
@@ -688,6 +689,32 @@ footer {
           <span class="project-status status-done">Complete</span>
         </div>
         <div class="project-arrow">↗</div>
+        <div class="project-title">Enterprise Active Directory &amp; Identity Governance (DC01)</div>
+        <div class="project-desc">Windows Server domain controller with AD DS, structured OUs, and secure DNS. Baseline hardening GPOs enforce password complexity, lockout thresholds, and local firewall policy. RBAC and security-group delegation cut lateral movement paths and remove over-privileged admin accounts. Security Event Log analysis (4624, 4625, 4720) to detect brute-force attempts and anomalous privilege escalation.</div>
+        <div class="project-tags">
+          <span class="tag">Windows Server</span><span class="tag">AD DS</span><span class="tag">Group Policy</span><span class="tag">RBAC</span><span class="tag">DNS</span><span class="tag">Event Log Analysis</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <span class="project-status status-done">Complete</span>
+        </div>
+        <div class="project-arrow">↗</div>
+        <div class="project-title">RHEL Enterprise Systems &amp; OS Hardening Lab</div>
+        <div class="project-desc">Standalone RHEL environment hardened to CIS Controls. SELinux targeted policies, firewalld zone-based rules, and password SSH disabled in favor of public-key auth. Persistent LVM storage with snapshot recovery, isolated systemd services, and local auditd rules for system activity logging.</div>
+        <div class="project-tags">
+          <span class="tag">RHEL</span><span class="tag">SELinux</span><span class="tag">firewalld</span><span class="tag">LVM</span><span class="tag">auditd</span><span class="tag">CIS Controls</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-header">
+          <span class="project-num">04</span>
+          <span class="project-status status-done">Complete</span>
+        </div>
+        <div class="project-arrow">↗</div>
         <div class="project-title">AWS Vulnerability Management Pipeline</div>
         <div class="project-desc">Serverless detection-to-notification pipeline. Inspector feeds EventBridge rules that trigger Lambda for triage and SNS for alerting. SSH exposure eliminated via SSM Session Manager. 100% critical finding remediation at zero monthly cost.</div>
         <div class="project-tags">
@@ -697,7 +724,7 @@ footer {
 
       <a href="#" class="project-card">
         <div class="project-header">
-          <span class="project-num">03</span>
+          <span class="project-num">05</span>
           <span class="project-status status-done">Complete</span>
         </div>
         <div class="project-arrow">↗</div>
@@ -710,7 +737,7 @@ footer {
 
       <a href="https://crhone.com" target="_blank" class="project-card">
         <div class="project-header">
-          <span class="project-num">04</span>
+          <span class="project-num">06</span>
           <span class="project-status status-done">Complete</span>
         </div>
         <div class="project-arrow">↗</div>
@@ -723,7 +750,7 @@ footer {
 
       <a href="#" class="project-card">
         <div class="project-header">
-          <span class="project-num">05</span>
+          <span class="project-num">07</span>
           <span class="project-status status-active">In Progress</span>
         </div>
         <div class="project-arrow">↗</div>
@@ -857,14 +884,12 @@ footer {
       <div class="exp-item">
         <div class="exp-date">Aug 2026 – Present<br>Internship</div>
         <div>
-          <div class="exp-role">Cybersecurity Intern</div>
+          <div class="exp-role">Cybersecurity Analyst</div>
           <div class="exp-company">Broward College — North Broward Technology Services</div>
           <ul class="exp-bullets">
-            <li>Monitor security alerts across SIEM and EDR platforms to identify, triage, and escalate potential threats</li>
-            <li>Perform log reviews and event correlation to support incident response workflows</li>
-            <li>Audit system configurations with cross-functional teams to strengthen baseline security hardening</li>
-            <li>Contribute to updating departmental security policies and procedures to align with NIST frameworks</li>
-            <li>Help plan and run cybersecurity awareness events for students and staff</li>
+            <li>Triage security events and analyze log data across campus endpoints to detect anomalous network and authentication behaviors</li>
+            <li>Execute threat detection and mitigation workflows alongside senior security staff using defensive toolchains and ticket escalation paths</li>
+            <li>Document incident findings, root cause analyses, and indicators of compromise (IOCs) to support SOC response procedures</li>
           </ul>
         </div>
       </div>
@@ -888,10 +913,11 @@ footer {
           <div class="exp-role">IT Operations Manager</div>
           <div class="exp-company">Diehard Business LLC</div>
           <ul class="exp-bullets">
-            <li>Sole IT resource for a multi-market field service business (35 technicians, 25 dispatchers) — systems, tooling, and infrastructure decisions end to end</li>
-            <li>Designed automation pipelines that scaled operations 375%, including AI-agent-assisted dispatch and a nightly cancellation-recovery pipeline</li>
-            <li>Troubleshoot API failures, webhook retry storms, and telephony routing across Zapier, AgentHost.ai, and OpenPhone/Quo</li>
-            <li>Manage user access, onboarding, and provisioning for a distributed team, including an offshore dispatch team</li>
+            <li>Sole IT resource engineering resilient cloud-hosted systems and dispatch infrastructure supporting 60+ distributed personnel (35 technicians, 25 dispatchers) across multi-market operations</li>
+            <li>Architected and deployed cloud automation workflows scaling operations 375% while resolving API latency, retry storms, and communications routing failures under high transaction volumes</li>
+            <li>Built automated operational pipelines and recovery systems, recovering lost revenue and reducing workload 40% through centralized health monitoring and automated remediation</li>
+            <li>Diagnosed and eliminated recurring system and connectivity bottlenecks across scheduling, dispatch, and communication tools</li>
+            <li>Author standard operating procedures (SOPs), knowledge base runbooks, and disaster recovery plans</li>
           </ul>
         </div>
       </div>
@@ -902,8 +928,9 @@ footer {
           <div class="exp-role">Technical Instructor</div>
           <div class="exp-company">Cre8tive Devs Software</div>
           <ul class="exp-bullets">
-            <li>Taught CompTIA A+ and AWS Cloud Practitioner curriculum to adult learners transitioning into IT</li>
-            <li>Built and maintained hands-on lab environments — hardware builds, virtualized OS installs, and AWS sandbox accounts</li>
+            <li>Delivered technical training on CompTIA Security+ and AWS curricula, covering network protocols (TCP/IP, DNS, ports), perimeter firewalls, and defense-in-depth principles</li>
+            <li>Built isolated virtual labs and AWS sandbox environments for student practice with vulnerability scanning, OS configuration, and incident remediation</li>
+            <li>Mentored adult cohorts through hands-on labs and certification exam preparation</li>
           </ul>
         </div>
       </div>
